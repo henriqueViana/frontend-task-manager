@@ -3,7 +3,7 @@ import Input from "../../components/Input";
 import { useLogin } from "../../hooks/useLogin";
 
 const Login = () => {
-  const { handleSubmit, updateUser } = useLogin();
+  const { handleSubmit, updateUser, errorMessage } = useLogin();
 
   return (
     <div className="flex items-center justify-center h-screen bg-gray-100">
@@ -32,6 +32,9 @@ const Login = () => {
         >
           Entrar
         </button>
+        {errorMessage && (
+          <p className="text-red-500 text-sm mt-1">{errorMessage}</p>
+        )}
       </Form>
     </div>
   );

@@ -1,27 +1,16 @@
 import Sidebar from "../../components/Sidebar";
 import { PieChart } from "../../components/Charts/Pie";
 import { BarChart } from "../../components/Charts/Bar";
-
-const COLORS = ["#3b82f6", "#f97316", "#10b981"];
+import { useDashboard } from "../../hooks/useDashboard";
 
 const Dashboard = () => {
-  // Exemplo de dados mockados
-  const statusData = [
-    { name: "Pendente", value: 5 },
-    { name: "Em Progresso", value: 8 },
-    { name: "Concluído", value: 12 },
-  ];
-
-  const categoryData = [
-    { name: "Trabalho", value: 10 },
-    { name: "Pessoal", value: 7 },
-    { name: "Outros", value: 8 },
-  ];
-
-  const totalTasks = statusData.reduce((sum, item) => sum + item.value, 0);
-  const completedTasks =
-    statusData.find((item) => item.name === "Concluído")?.value || 0;
-  const pendingTasks = totalTasks - completedTasks;
+  const {
+    chartColors,
+    categoryData,
+    statusData,
+    pendingTasks,
+    completedTasks,
+  } = useDashboard();
 
   return (
     <div className="flex min-h-screen h-screen bg-gray-50">
@@ -31,7 +20,6 @@ const Dashboard = () => {
           Dashboard de Tarefas
         </h1>
 
-        {/* KPI Section */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
           <div className="bg-white rounded-xl p-4 shadow">
             <h2 className="text-lg font-semibold mb-2 text-default-black">
@@ -54,10 +42,9 @@ const Dashboard = () => {
             <h2 className="font-semibold mb-2 text-default-black">
               Distribuição por Status
             </h2>
-            <PieChart data={statusData} colors={COLORS} />
+            <PieChart data={statusData} colors={chartColors} />
           </div>
 
-          {/* Category Distribution Bar Chart */}
           <div className="bg-white rounded-xl p-4 shadow">
             <h2 className="font-semibold mb-2 text-default-black">
               Distribuição por Categoria
