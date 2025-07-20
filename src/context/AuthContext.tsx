@@ -1,8 +1,8 @@
 import { createContext, useContext, useState, type ReactNode } from "react";
 
 type UserType = {
+  id: string;
   email: string;
-  password: string;
 };
 
 type AuthContextType = {
@@ -16,14 +16,19 @@ type PropsType = {
 };
 
 const defaultUserValue = {
+  id: "",
   email: "",
-  password: "",
 };
 
 const AuthContext = createContext<AuthContextType>({} as AuthContextType);
 
 const AuthProvider = ({ children }: PropsType) => {
-  const [user, setUser] = useState<UserType>(defaultUserValue);
+  const storedUser = localStorage.getItem("user");
+  const initialUserData = storedUser
+    ? JSON.parse(storedUser)
+    : defaultUserValue;
+
+  const [user, setUser] = useState<UserType>(initialUserData);
 
   const logout = () => setUser(defaultUserValue);
 
