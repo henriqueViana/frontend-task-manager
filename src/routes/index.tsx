@@ -8,6 +8,8 @@ import AuthProvider from "../context/AuthContext";
 import Login from "../pages/Login";
 import AuthGuard from "./auth-guard";
 import Dashboard from "../pages/Dashboard";
+import Register from "../pages/Tasks/Register";
+import TasksPage from "../pages/Tasks";
 
 const Routes = () => {
   return (
@@ -26,14 +28,23 @@ const Routes = () => {
             }
           />
 
-          {/* <Route
-            path="/tasks"
+          <Route
+            path="/tarefas"
             element={
               <AuthGuard>
-                <Tasks />
+                <TasksPage />
               </AuthGuard>
             }
-          /> */}
+          />
+
+          <Route
+            path="/tarefas/cadastro"
+            element={
+              <AuthGuard>
+                <Register />
+              </AuthGuard>
+            }
+          />
 
           <Route path="*" element={<Login />} />
         </ReactRoutes>
