@@ -22,7 +22,6 @@ export const PieChart = ({
   outerRadius = 80,
   colors,
 }: PieChartType) => {
-  console.log("chamou");
   return (
     <PieRechart width={width} height={height}>
       <Pie

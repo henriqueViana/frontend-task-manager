@@ -13,10 +13,10 @@ const Sidebar = () => {
       <h2 className="font-bold text-lg mb-6">Menu</h2>
       <nav className="space-y-2">
         <Link to="/dashboard" className={linkClass("/dashboard")}>
-          📊 Dashboard
+          Dashboard
         </Link>
-        <Link to="/tasks" className={linkClass("/tasks")}>
-          ✅ Tarefas
+        <Link to="/tarefas" className={linkClass("/tarefas")}>
+          Tarefas
         </Link>
       </nav>
     </aside>
