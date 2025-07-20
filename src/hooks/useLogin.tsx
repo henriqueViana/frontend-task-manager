@@ -1,6 +1,12 @@
-import { useCallback, type FormEvent } from "react";
+import { useCallback, useState, type FormEvent } from "react";
 import { useAuth } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
+import { getUserLogin } from "../service/users";
+
+type UserInputType = {
+  email: string;
+  password: string;
+};
 
 type UserType = {
   email: string;
@@ -10,9 +16,11 @@ type UserType = {
 type UseLoginType = {
   updateUser: (field: keyof UserType, value: string) => void;
   handleSubmit: (event: FormEvent<HTMLFormElement>) => void;
+  errorMessage: string;
+  isLoading: boolean;
 };
 
-const userLocalRef: UserType = {
+const userInput: UserType = {
   email: "",
   password: "",
 };
@@ -20,19 +28,39 @@ const userLocalRef: UserType = {
 export const useLogin = (): UseLoginType => {
   const { setUser } = useAuth();
   const navigate = useNavigate();
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState<string>("");
 
-  const updateUser = useCallback((field: keyof UserType, value: string) => {
-    userLocalRef[field] = value;
-  }, []);
+  const updateUser = useCallback(
+    (field: keyof UserInputType, value: string) => {
+      userInput[field] = value;
+    },
+    []
+  );
 
-  const handleSubmit = useCallback((event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    setUser(userLocalRef);
-    navigate("/dashboard");
-  }, []);
+  const handleSubmit = useCallback(
+    async (event: FormEvent<HTMLFormElement>) => {
+      event.preventDefault();
+      setIsLoading(true);
+      const userData = await getUserLogin(userInput.email, userInput.password);
+      setIsLoading(false);
+
+      if (!userData) {
+        setError("Email ou senha inválidos.");
+        return;
+      }
+
+      setUser(userData);
+      localStorage.setItem("user", JSON.stringify(userData));
+      navigate("/dashboard");
+    },
+    []
+  );
 
   return {
     updateUser,
     handleSubmit,
+    errorMessage: error,
+    isLoading,
   };
 };
