@@ -8,7 +8,7 @@ type PrivateRouteType = {
 
 const AuthGuard = ({ children }: PrivateRouteType) => {
   const { user } = useAuth();
-  return user ? children : <Navigate to="/login" />;
+  return user.email ? children : <Navigate to="/login" />;
 };
 
 export default AuthGuard;
