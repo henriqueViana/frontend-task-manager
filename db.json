@@ -1,0 +1,85 @@
+{
+  "posts": [
+    {
+      "id": "1",
+      "title": "a title",
+      "views": 100
+    },
+    {
+      "id": "2",
+      "title": "another title",
+      "views": 200
+    },
+    {
+      "id": "3",
+      "title": "another title 3",
+      "views": 300
+    }
+  ],
+  "comments": [
+    {
+      "id": "1",
+      "text": "a comment about post 1",
+      "postId": "1"
+    },
+    {
+      "id": "2",
+      "text": "another comment about post 1",
+      "postId": "1"
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "tasks": [
+    {
+      "userId": "1",
+      "items": [
+        {
+          "id": "1",
+          "title": "Tarefa 1",
+          "description": "Descrição da tarefa 1",
+          "priority": "Média",
+          "category": "Trabalho",
+          "status": "Concluído"
+        },
+        {
+          "id": "2",
+          "title": "Tarefa 2",
+          "description": "Descrição da tarefa 2",
+          "priority": "Alta",
+          "category": "Pessoal",
+          "status": "Pendente"
+        },
+        {
+          "id": "3",
+          "title": "Tarefa 3",
+          "description": "Descrição da tarefa 3",
+          "priority": "Baixa",
+          "category": "Pessoal",
+          "status": "Em Progresso"
+        }
+      ]
+    },
+    {
+      "userId": "2",
+      "items": [
+        {
+          "id": "1",
+          "title": "Tarefa 1",
+          "description": "Descrição da tarefa 1",
+          "priority": "Média",
+          "category": "Trabalho",
+          "status": "Concluída"
+        }
+      ]
+    }
+  ],
+  "users": [
+    {
+      "id": "1",
+      "email": "tester@admin.com",
+      "password": "123456"
+    }
+  ]
+}
