@@ -7,11 +7,19 @@ type InputType = {
   onValueChange: (value: string) => void;
   placeholder?: string;
   className?: string;
+  initialValue?: string;
 };
 
 const Input = memo(
-  ({ type, label, onValueChange, placeholder, className }: InputType) => {
-    const [value, setValue] = useState<string>("");
+  ({
+    type,
+    label,
+    onValueChange,
+    placeholder,
+    className,
+    initialValue = "",
+  }: InputType) => {
+    const [value, setValue] = useState<string>(initialValue);
     const [error, setError] = useState<string>("");
 
     const handleChange = (event: ChangeEvent<HTMLInputElement>) => {

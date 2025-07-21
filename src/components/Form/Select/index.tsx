@@ -10,11 +10,18 @@ type SelectType = {
   defaultOption?: string;
   options: OptionType[];
   onValueChange: (value: string) => void;
+  initialValue?: string;
 };
 
 const Select = memo(
-  ({ label, defaultOption, options, onValueChange }: SelectType) => {
-    const [value, setValue] = useState<string>("");
+  ({
+    label,
+    defaultOption,
+    options,
+    onValueChange,
+    initialValue = "",
+  }: SelectType) => {
+    const [value, setValue] = useState<string>(initialValue);
 
     const handleChange = (event: any) => {
       const { value } = event.target;
