@@ -44,7 +44,16 @@ const Routes = () => {
                 <Register />
               </AuthGuard>
             }
-          />
+          >
+            <Route
+              path="*"
+              element={
+                <AuthGuard>
+                  <Register />
+                </AuthGuard>
+              }
+            />
+          </Route>
 
           <Route path="*" element={<Login />} />
         </ReactRoutes>
