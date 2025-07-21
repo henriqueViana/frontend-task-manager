@@ -1,22 +1,27 @@
+import { useRegister } from "../../../hooks/useRegister";
+import { useTasks } from "../../../hooks/useTasks";
+import type { TaskType } from "../../../store/tasksSlice";
+
 type TaskItemType = {
-  title: string;
-  onEdit: () => void;
-  onDelete: () => void;
+  task: TaskType;
 };
 
-const TaskItem = ({ title, onEdit, onDelete }: TaskItemType) => {
+const TaskItem = ({ task }: TaskItemType) => {
+  const { redirectToEditTask } = useTasks();
+  const { deleteTask } = useRegister();
+
   return (
     <div className="flex items-center justify-between bg-white rounded-xl shadow p-4 mb-2">
-      <span className="font-medium text-gray-800">{title}</span>
+      <span className="font-medium text-gray-800">{task.title}</span>
       <div className="flex gap-2">
         <button
-          onClick={onEdit}
+          onClick={() => redirectToEditTask(task.id)}
           className="px-3 py-1 rounded-lg text-sm bg-blue-500 text-white hover:bg-blue-600"
         >
           Editar
         </button>
         <button
-          onClick={onDelete}
+          onClick={() => deleteTask(task.id)}
           className="px-3 py-1 rounded-lg text-sm bg-red-500 text-white hover:bg-red-600"
         >
           Remover
