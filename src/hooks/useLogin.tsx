@@ -41,6 +41,9 @@ export const useLogin = (): UseLoginType => {
   const handleSubmit = useCallback(
     async (event: FormEvent<HTMLFormElement>) => {
       event.preventDefault();
+      if (!userInput.email || !userInput.password) {
+        return;
+      }
       setIsLoading(true);
       const userData = await getUserLogin(userInput.email, userInput.password);
       setIsLoading(false);

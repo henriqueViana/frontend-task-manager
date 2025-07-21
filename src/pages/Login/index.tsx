@@ -11,9 +11,7 @@ const Login = () => {
         onSubmit={handleSubmit}
         className="bg-white p-6 rounded-xl shadow-xl max-w-lg min-w-lg"
       >
-        <h2 className="text-xl font-bold text-default-black">
-          Acessar o Sistema
-        </h2>
+        <h2 className="text-xl font-bold text-default-black">Login</h2>
         <Input
           type="email"
           placeholder="E-mail"
@@ -28,7 +26,7 @@ const Login = () => {
         />
         <button
           type="submit"
-          className="bg-blue-500 mt-4 text-white w-full rounded p-2"
+          className="bg-blue-500 hover:bg-blue-700 disabled:bg-blue-300 mt-4 text-white w-full rounded p-2"
         >
           Entrar
         </button>
