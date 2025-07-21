@@ -17,7 +17,8 @@ const statusOptions = [
 ];
 
 const Register = () => {
-  const { handleSubmit, updateFieldRegister } = useRegister();
+  const { handleSubmit, updateFieldRegister, task } = useRegister();
+
   return (
     <div className="flex min-h-screen h-screen bg-gray-50">
       <Sidebar />
@@ -36,6 +37,7 @@ const Register = () => {
               label="Título"
               onValueChange={(value) => updateFieldRegister("title", value)}
               className="w-full mt-1 border rounded p-2 text-default-black"
+              initialValue={task?.title}
             />
             <Input
               type="text"
@@ -44,29 +46,33 @@ const Register = () => {
                 updateFieldRegister("description", value)
               }
               className="w-full mt-1 border rounded p-2 text-default-black"
+              initialValue={task?.description}
             />
             <Input
               type="text"
               label="Categoria"
               onValueChange={(value) => updateFieldRegister("category", value)}
               className="w-full mt-1 border rounded p-2 text-default-black"
+              initialValue={task?.category}
             />
             <Select
               label="Prioridade"
               options={priorityOptions}
               onValueChange={(value) => updateFieldRegister("priority", value)}
+              initialValue={task?.priority}
             />
             <Select
               label="Status"
               options={statusOptions}
               onValueChange={(value) => updateFieldRegister("status", value)}
+              initialValue={task?.status}
             />
 
             <button
               type="submit"
               className="bg-blue-500 mt-4 text-white w-full rounded p-2"
             >
-              Entrar
+              {task.id ? "Editar" : "Cadastrar"}
             </button>
           </Form>
         </div>
