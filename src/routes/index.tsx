@@ -10,10 +10,12 @@ import AuthGuard from "./auth-guard";
 import Dashboard from "../pages/Dashboard";
 import Register from "../pages/Tasks/Register";
 import TasksPage from "../pages/Tasks";
+import { Toaster } from "react-hot-toast";
 
 const Routes = () => {
   return (
     <AuthProvider>
+      <Toaster position="top-right" />
       <BrowserRouter>
         <ReactRoutes>
           <Route path="/" element={<Navigate to="/login" replace />} />
