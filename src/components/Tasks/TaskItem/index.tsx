@@ -1,4 +1,3 @@
-import { useRegister } from "../../../hooks/useRegister";
 import { useTasks } from "../../../hooks/useTasks";
 import type { TaskType } from "../../../store/tasksSlice";
 
@@ -7,8 +6,7 @@ type TaskItemType = {
 };
 
 const TaskItem = ({ task }: TaskItemType) => {
-  const { redirectToEditTask } = useTasks();
-  const { deleteTask } = useRegister();
+  const { redirectToEditTask, deleteTask } = useTasks();
 
   return (
     <div className="flex items-center justify-between bg-white rounded-xl shadow p-4 mb-2">
