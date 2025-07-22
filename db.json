@@ -1,38 +1,7 @@
 {
-  "posts": [
-    {
-      "id": "1",
-      "title": "a title",
-      "views": 100
-    },
-    {
-      "id": "2",
-      "title": "another title",
-      "views": 200
-    },
-    {
-      "id": "3",
-      "title": "another title 3",
-      "views": 300
-    }
-  ],
-  "comments": [
-    {
-      "id": "1",
-      "text": "a comment about post 1",
-      "postId": "1"
-    },
-    {
-      "id": "2",
-      "text": "another comment about post 1",
-      "postId": "1"
-    }
-  ],
-  "profile": {
-    "name": "typicode"
-  },
   "tasks": [
     {
+      "id": "1",
       "userId": "1",
       "items": [
         {
@@ -44,24 +13,25 @@
           "status": "Concluído"
         },
         {
-          "id": "2",
-          "title": "Tarefa 2",
-          "description": "Descrição da tarefa 2",
-          "priority": "Alta",
-          "category": "Pessoal",
-          "status": "Pendente"
-        },
-        {
           "id": "3",
           "title": "Tarefa 3",
           "description": "Descrição da tarefa 3",
           "priority": "Baixa",
           "category": "Pessoal",
           "status": "Em Progresso"
+        },
+        {
+          "category": "Outras",
+          "description": "Descrição 5",
+          "priority": "Média",
+          "id": "04536bc6-bb3c-4816-811f-fc2814c1672a",
+          "status": "Em Progresso",
+          "title": "Tarefa 55"
         }
       ]
     },
     {
+      "id": "2",
       "userId": "2",
       "items": [
         {
@@ -78,7 +48,12 @@
   "users": [
     {
       "id": "1",
-      "email": "tester@admin.com",
+      "email": "tester1@admin.com",
+      "password": "123456"
+    },
+    {
+      "id": "2",
+      "email": "tester2@admin.com",
       "password": "123456"
     }
   ]
