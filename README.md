@@ -1,69 +1,57 @@
-# React + TypeScript + Vite
+# Task Manager - Sistema de Gerenciamento de Tarefas
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicação web desenvolvida em **ReactJS** para gerenciamento de tarefas pessoais ou profissionais. O projeto utiliza arquitetura baseada em **Headless Components**, gerenciamento de estado global com **Redux Toolkit + Redux Persist**, além de backend simulado via **JSON Server**.
 
-Currently, two official plugins are available:
+## ✨ Funcionalidades
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- ✅ Login com validação (rota pública)
+- ✅ Rotas privadas protegidas
+- ✅ CRUD de tarefas:
+  - Criar, listar, editar, remover
+  - Campos: título, descrição, categoria, prioridade, status
+- ✅ Dashboard com gráficos (Recharts)
+- ✅ Filtros de tarefas (status, categoria, prioridade) (em construção)
+- ✅ Busca por texto (em construção)
+- ✅ Toasts de feedback global (React Hot Toast)
+- ✅ Design responsivo (Tailwind CSS)
+- ✅ Backend simulado (JSON Server)
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 📦 Tecnologias
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- React 18 + Vite
+- TypeScript
+- Redux Toolkit
+- Redux Persist
+- React Router
+- React Hot Toast
+- Recharts
+- JSON Server (backend simulado)
+- Tailwind CSS 4
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+---
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## 🚀 Instalação
+
+### Pré requisitos
+
+- **Node.js 22+**
+- **Yarn ou NPM**
+
+```bash
+# Instalar dependências
+yarn install
+
+# Rodar Frontend
+yarn dev
+
+# Rodar JSON Server (backend)
+yarn server
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Login
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Configuração banco de dados (local com json-server)
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+O arquivo _db.json_ contém os dados atuais do banco, que por padrão constam com um usuário e três tarefas cadastradas
