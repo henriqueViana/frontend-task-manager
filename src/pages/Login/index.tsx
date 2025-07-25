@@ -6,7 +6,7 @@ const Login = () => {
   const { handleSubmit, updateUser, errorMessage } = useLogin();
 
   return (
-    <div className="flex items-center justify-center h-screen bg-gray-100">
+    <main className="flex items-center justify-center h-screen bg-gray-100">
       <Form
         onSubmit={handleSubmit}
         className="bg-white p-6 rounded-xl shadow-xl max-w-lg min-w-lg"
@@ -34,7 +34,7 @@ const Login = () => {
           <p className="text-red-500 text-sm mt-1">{errorMessage}</p>
         )}
       </Form>
-    </div>
+    </main>
   );
 };
 

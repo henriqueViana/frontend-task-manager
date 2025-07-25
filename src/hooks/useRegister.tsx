@@ -7,6 +7,8 @@ type UseRegisterType = {
   updateFieldRegister: (field: keyof TaskType, value: string) => void;
   handleSubmit: (event: FormEvent<HTMLFormElement>) => void;
   task: TaskType;
+  priorityOptions: { label: string; value: string }[];
+  statusOptions: { label: string; value: string }[];
 };
 
 let task: TaskType = {
@@ -23,6 +25,18 @@ const extractTaskIdOfPath = () => {
   return location.pathname.split("/").pop() || "";
 };
 
+const priorityOptions = [
+  { label: "Alta", value: "Alta" },
+  { label: "Média", value: "Média" },
+  { label: "Baixa", value: "Baixa" },
+];
+
+const statusOptions = [
+  { label: "Pendente", value: "Pendente" },
+  { label: "Em Progresso", value: "Em Progresso" },
+  { label: "Concluído", value: "Concluído" },
+];
+
 export const useRegister = (): UseRegisterType => {
   const navigate = useNavigate();
   const { getTaskById, editTask, createNewTask } = useTasks();
@@ -37,16 +51,14 @@ export const useRegister = (): UseRegisterType => {
     []
   );
 
-  const handleSubmit = useCallback((event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-
-    if (task.id) {
-      editTask(task);
+  const handleSubmit = useCallback((data: any) => {
+    if (data.id) {
+      editTask(data);
       navigate("/tarefas");
       return;
     }
 
-    createNewTask(task);
+    createNewTask(data);
     navigate("/tarefas");
     return;
   }, []);
@@ -55,5 +67,7 @@ export const useRegister = (): UseRegisterType => {
     updateFieldRegister,
     handleSubmit,
     task,
+    priorityOptions,
+    statusOptions,
   };
 };

@@ -23,7 +23,6 @@ const Input = memo(
     const [error, setError] = useState<string>("");
 
     const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-      // TODO - fazer um debounce
       const { value } = event.target;
       setValue(value);
       onValueChange(value);

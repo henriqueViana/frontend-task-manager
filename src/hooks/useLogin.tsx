@@ -26,7 +26,7 @@ const userInput: UserType = {
 };
 
 export const useLogin = (): UseLoginType => {
-  const { setUser } = useAuth();
+  const { setUserLogin } = useAuth();
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string>("");
@@ -53,8 +53,7 @@ export const useLogin = (): UseLoginType => {
         return;
       }
 
-      setUser(userData);
-      localStorage.setItem("user", JSON.stringify(userData));
+      setUserLogin(userData);
       navigate("/dashboard");
     },
     []

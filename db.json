@@ -10,7 +10,15 @@
           "description": "Descrição da tarefa 1",
           "priority": "Média",
           "category": "Trabalho",
-          "status": "Concluído"
+          "status": "Concluída"
+        },
+        {
+          "id": "2",
+          "title": "Tarefa 2",
+          "description": "Descrição da tarefa 2",
+          "priority": "Alta",
+          "category": "Trabalho",
+          "status": "Em Progresso"
         },
         {
           "id": "3",
@@ -21,12 +29,36 @@
           "status": "Em Progresso"
         },
         {
-          "category": "Outras",
+          "id": "4",
+          "title": "Tarefa 4",
+          "description": "Descrição da tarefa 4",
+          "priority": "Baixa",
+          "category": "Estudos",
+          "status": "Concluída"
+        },
+        {
+          "category": "Estudos",
           "description": "Descrição 5",
+          "priority": "Alta",
+          "id": "2ad5aa17-fd01-43d1-bd20-8c4ed909e6d4",
+          "status": "Pendente",
+          "title": "Tarefa 5"
+        },
+        {
+          "category": "Outras",
+          "description": "Descrição 6",
+          "priority": "Alta",
+          "id": "44e2f134-5335-41ac-be3b-2d8615ed4d07",
+          "status": "Pendente",
+          "title": "Tarefa 6"
+        },
+        {
+          "category": "Outras",
+          "description": "Descrição 7",
           "priority": "Média",
-          "id": "04536bc6-bb3c-4816-811f-fc2814c1672a",
-          "status": "Em Progresso",
-          "title": "Tarefa 55"
+          "id": "6ab239b0-4659-4ff1-ac14-13f6d36fc24d",
+          "status": "Concluído",
+          "title": "Tarefa 7"
         }
       ]
     },
@@ -49,11 +81,6 @@
     {
       "id": "1",
       "email": "tester1@admin.com",
-      "password": "123456"
-    },
-    {
-      "id": "2",
-      "email": "tester2@admin.com",
       "password": "123456"
     }
   ]

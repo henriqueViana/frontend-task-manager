@@ -1,4 +1,10 @@
-import { createContext, useContext, useState, type ReactNode } from "react";
+import {
+  createContext,
+  useCallback,
+  useContext,
+  useState,
+  type ReactNode,
+} from "react";
 
 type UserType = {
   id: string;
@@ -7,7 +13,7 @@ type UserType = {
 
 type AuthContextType = {
   user: UserType;
-  setUser: React.Dispatch<React.SetStateAction<UserType>>;
+  setUserLogin: (userData: UserType) => void;
   logout: () => void;
 };
 
@@ -24,17 +30,26 @@ const AuthContext = createContext<AuthContextType>({} as AuthContextType);
 
 const AuthProvider = ({ children }: PropsType) => {
   const storedUser = localStorage.getItem("user");
+
   const initialUserData = storedUser
     ? JSON.parse(storedUser)
     : defaultUserValue;
 
   const [user, setUser] = useState<UserType>(initialUserData);
 
-  const logout = () => setUser(defaultUserValue);
+  const setUserLogin = useCallback((userData: UserType) => {
+    setUser(userData);
+    localStorage.setItem("user", JSON.stringify(userData));
+  }, []);
+
+  const logout = () => {
+    setUser(defaultUserValue);
+    localStorage.removeItem("user");
+  };
 
   const context: AuthContextType = {
     user,
-    setUser,
+    setUserLogin,
     logout,
   };
 

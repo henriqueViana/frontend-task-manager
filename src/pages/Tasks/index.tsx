@@ -8,9 +8,9 @@ const TasksPage = () => {
   return (
     <section className="flex min-h-screen h-screen bg-gray-50">
       <Sidebar />
-      <div className="p-6 w-full">
+      <div className="p-6 bg-gray-50 min-h-screen flex-1">
         <div className="flex justify-between items-center mb-4">
-          <h1 className="text-xl font-bold text-default-black">
+          <h1 className="text-2xl font-bold text-default-black">
             Minhas Tarefas
           </h1>
           <button

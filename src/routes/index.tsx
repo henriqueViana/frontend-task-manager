@@ -4,13 +4,14 @@ import {
   Routes as ReactRoutes,
   Route,
 } from "react-router-dom";
+import { Toaster } from "react-hot-toast";
+
 import AuthProvider from "../context/AuthContext";
 import Login from "../pages/Login";
 import AuthGuard from "./auth-guard";
 import Dashboard from "../pages/Dashboard";
 import Register from "../pages/Tasks/Register";
 import TasksPage from "../pages/Tasks";
-import { Toaster } from "react-hot-toast";
 
 const Routes = () => {
   return (

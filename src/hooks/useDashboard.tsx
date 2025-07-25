@@ -27,7 +27,7 @@ export const useDashboard = () => {
   const totalTasks = tasks.length;
 
   const completedTasks =
-    tasks.filter((task) => task.status === "Concluído")?.length || 0;
+    tasks.filter((task) => task.status === "Concluída")?.length || 0;
 
   const pendingTasks = totalTasks - completedTasks;
 
